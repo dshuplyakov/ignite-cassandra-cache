@@ -1,0 +1,12 @@
+<persistence keyspace="ignite" table="primitive_rest" ttl="86400">
+    <keyspaceOptions>
+        REPLICATION = {'class' : 'SimpleStrategy', 'replication_factor' : 1}
+        AND DURABLE_WRITES = true
+    </keyspaceOptions>
+    <tableOption>
+        comment = 'Cache test'
+        AND read_repair_chance = 0.2
+    </tableOption>
+    <keyPersistence class="java.lang.String" strategy="PRIMITIVE" column="key"/>
+    <valuePersistence class="java.lang.String" strategy="PRIMITIVE" column="value"/>
+</persistence>
